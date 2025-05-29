@@ -37,7 +37,7 @@ def main() -> None:
         return
 
     api = HHAPI()
-    db = DBManager(db_params)
+    db = src.db_manager.DBManager(db_params)
 
     company_ids: list[int] = [11679140, 561525, 9472604, 563195, 942597, 851716, 5507752, 11619215, 10266062, 2794209]
     try:
@@ -62,7 +62,7 @@ def main() -> None:
     db.close()
 
 
-def user_interface(db_manager: DBManager) -> None:
+def user_interface(db_manager: src.db_manager.DBManager) -> None:
     """
     Функция для взаимодействия с пользователем, предоставляющая интерфейс для работы с данными.
 

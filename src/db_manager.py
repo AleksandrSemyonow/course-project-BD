@@ -76,9 +76,9 @@ class DBManager:
                     "VALUES (%s, %s, %s, %s, (SELECT hh_id FROM companies WHERE hh_id = %s))",
                     (
                         vacancy["name"],
-                        vacancy.get("salary", {}).get("from"),
-                        vacancy.get("salary", {}).get("to"),
-                        vacancy.get("salary", {}).get("currency"),
+                        vacancy["salary"]["from"] if vacancy.get('salary') else None,
+                        vacancy["salary"]["to"] if vacancy.get('salary') else None,
+                        vacancy["salary"]["currency"] if vacancy.get('salary') else None,
                         employer_id,
                     ),
                 )
